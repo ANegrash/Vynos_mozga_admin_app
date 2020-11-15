@@ -15,7 +15,6 @@ public class MainActivity extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         prefs = getSharedPreferences("ru.nav.vynosmozga_adminapp", MODE_PRIVATE);
-        //errTW=(TextView)findViewById(R.id.errorTextMain);
         TabHost tabHost = getTabHost();
 
         if (prefs.getBoolean("isLogged", true)) {
@@ -24,14 +23,14 @@ public class MainActivity extends TabActivity {
         }else{
             TabHost.TabSpec tabSpec;
 
-            tabSpec = tabHost.newTabSpec("tag1");
+            tabSpec = tabHost.newTabSpec("tag2");
             tabSpec.setIndicator("Регистрация");
-            tabSpec.setContent(new Intent(MainActivity.this, NowRegActivity.class));
+            tabSpec.setContent(new Intent(MainActivity.this, SettingsActivity.class));
             tabHost.addTab(tabSpec);
 
-            tabSpec = tabHost.newTabSpec("tag2");
+            tabSpec = tabHost.newTabSpec("tag1");
             tabSpec.setIndicator("Настройки");
-            tabSpec.setContent(new Intent(MainActivity.this, SettingsActivity.class));
+            tabSpec.setContent(new Intent(MainActivity.this, NowRegActivity.class));
             tabHost.addTab(tabSpec);
         }
     }

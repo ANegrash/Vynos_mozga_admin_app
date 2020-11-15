@@ -6,16 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
@@ -25,6 +25,7 @@ import okhttp3.Response;
 
 public class TeamData extends AppCompatActivity {
 SharedPreferences prefs;
+ImageButton phoning;
 EditText comandName, comandPeople, comandCap, comandEmail, comandPhone, comandSocial, comandComment;
 RadioGroup barSel;
 Button delete, update;
@@ -34,18 +35,21 @@ Button delete, update;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_data);
         prefs = getSharedPreferences("ru.nav.vynosmozga_adminapp", MODE_PRIVATE);
-        comandName = (EditText)findViewById(R.id.nameTeamEdit);
-        barSel = (RadioGroup) findViewById(R.id.barSelect);
-        comandPeople = (EditText)findViewById(R.id.countPeopleEdit);
-        comandCap = (EditText)findViewById(R.id.capNameEdit);
-        comandEmail = (EditText)findViewById(R.id.emailEdit);
-        comandPhone = (EditText)findViewById(R.id.phoneEdit);
-        comandSocial = (EditText)findViewById(R.id.socialEdit);
-        comandComment = (EditText)findViewById(R.id.commentEdit);
-        delete=(Button)findViewById(R.id.deleteTeam);
-        update=(Button)findViewById(R.id.updateTeam);
+        comandName = findViewById(R.id.nameTeamEdit);
+        barSel = findViewById(R.id.barSelect);
+        comandPeople = findViewById(R.id.countPeopleEdit);
+        comandCap = findViewById(R.id.capNameEdit);
+        comandEmail = findViewById(R.id.emailEdit);
+        comandPhone = findViewById(R.id.phoneEdit);
+        comandSocial = findViewById(R.id.socialEdit);
+        comandComment = findViewById(R.id.commentEdit);
+        phoning = findViewById(R.id.phoneButton);
+        delete= findViewById(R.id.deleteTeam);
+        update= findViewById(R.id.updateTeam);
+
 
         ActionBar actionBar =getSupportActionBar();
+        assert actionBar != null;
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
@@ -63,12 +67,12 @@ Button delete, update;
         test.run("https://vynosmozga.ru/admin/app/index.php?email="+log+"&pass="+pass+"&typeRequest="+request+"&team="+teamName,
                 new Callback() {
                     @Override
-                    public void onFailure(Call call, IOException e) {
+                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
 
                     }
 
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                         //todo work with response, parse and etc...
                         final String result = response.body().string();
                         TeamData.this.runOnUiThread(new Runnable() {
@@ -85,6 +89,15 @@ Button delete, update;
                                 comandCap.setText(myData[2]);
                                 comandSocial.setText(myData[6]);
                                 comandComment.setText(myData[7]);
+                                final String numberPh = "tel:"+myData[3];
+                                phoning.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse(numberPh));
+                                        startActivity(callIntent);
+                                    }
+                                });
+
 
                                 delete.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -199,16 +212,5 @@ Button delete, update;
 
                     }
                 });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 }
