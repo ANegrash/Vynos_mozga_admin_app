@@ -13,6 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".TeamData"></activity>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".NowRegActivity"></activity>
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".MainActivity"
