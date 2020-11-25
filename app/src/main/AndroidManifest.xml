@@ -12,9 +12,13 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TeamData"></activity>
-        <activity android:name=".SettingsActivity"></activity>
-        <activity android:name=".NowRegActivity"></activity>
+        <activity
+            android:name=".SearchTeam"
+            android:label="@string/title_activity_search_team"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".TeamData" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".NowRegActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -27,13 +31,7 @@
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="@string/app_name" />
     </application>
 
 </manifest>
