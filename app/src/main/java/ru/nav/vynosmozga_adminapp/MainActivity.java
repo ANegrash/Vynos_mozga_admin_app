@@ -29,7 +29,7 @@ public class MainActivity extends TabActivity {
             tabHost.addTab(tabSpec);
 
             tabSpec = tabHost.newTabSpec("tag1");
-            tabSpec.setIndicator("Настройки");
+            tabSpec.setIndicator("Меню");
             tabSpec.setContent(new Intent(MainActivity.this, NowRegActivity.class));
             tabHost.addTab(tabSpec);
         }
