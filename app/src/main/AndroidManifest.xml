@@ -13,14 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SearchTeam"
-            android:label="@string/title_activity_search_team"
+            android:name=".menu.bars.BarData"
+            android:label="@string/title_activity_bar_data"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".TeamData" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".NowRegActivity" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".menu.bars.AllBars"
+            android:label="@string/title_activity_all_bars"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menu.searching_teams.SearchTeam"
+            android:label="@string/title_activity_search_team"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".now_registrate.TeamData" />
+        <activity android:name=".now_registrate.SettingsActivity" />
+        <activity android:name=".menu.NowRegActivity" />
+        <activity
+            android:name=".start_activities.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,9 +36,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".start_activities.LoginActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".start_activities.MainActivity"
             android:label="@string/app_name" />
     </application>
 

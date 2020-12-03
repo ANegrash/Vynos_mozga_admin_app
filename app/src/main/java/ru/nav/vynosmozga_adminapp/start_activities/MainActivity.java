@@ -1,10 +1,14 @@
-package ru.nav.vynosmozga_adminapp;
+package ru.nav.vynosmozga_adminapp.start_activities;
 
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TabHost;
+
+import ru.nav.vynosmozga_adminapp.R;
+import ru.nav.vynosmozga_adminapp.now_registrate.SettingsActivity;
+import ru.nav.vynosmozga_adminapp.menu.NowRegActivity;
 
 
 public class MainActivity extends TabActivity {

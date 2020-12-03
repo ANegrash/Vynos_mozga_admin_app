@@ -1,4 +1,4 @@
-package ru.nav.vynosmozga_adminapp;
+package ru.nav.vynosmozga_adminapp.send_request;
 
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;

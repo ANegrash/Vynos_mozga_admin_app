@@ -1,4 +1,4 @@
-package ru.nav.vynosmozga_adminapp;
+package ru.nav.vynosmozga_adminapp.now_registrate;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +23,8 @@ import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import ru.nav.vynosmozga_adminapp.send_request.Post;
+import ru.nav.vynosmozga_adminapp.R;
 
 public class TeamData extends AppCompatActivity {
 SharedPreferences prefs;

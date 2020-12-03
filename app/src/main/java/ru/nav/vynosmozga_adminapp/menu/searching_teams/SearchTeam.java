@@ -1,11 +1,7 @@
-package ru.nav.vynosmozga_adminapp;
+package ru.nav.vynosmozga_adminapp.menu.searching_teams;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,13 +9,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,6 +20,10 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import ru.nav.vynosmozga_adminapp.send_request.Post;
+import ru.nav.vynosmozga_adminapp.R;
+import ru.nav.vynosmozga_adminapp.adapters_for_list.State;
+import ru.nav.vynosmozga_adminapp.adapters_for_list.StateAdapter;
 
 public class SearchTeam extends AppCompatActivity {
     private List<State> states = new ArrayList();
